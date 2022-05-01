@@ -13,7 +13,7 @@ CREATE TABLE `Employee` (
   `Email` varchar(45) NOT NULL,
   `Privilege` varchar(45) NOT NULL,
   `Password` varchar(64) NOT NULL,
-  `Active` BOOLEAN NOT NULL,
+  `IsActive` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`)
 );
 
