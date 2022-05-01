@@ -1,7 +1,7 @@
 USE carDealership;
 
 -- ----------------------------------------------Employees--------------------------------------------------------------------------------------
-INSERT INTO Employee (FirstName, LastName, Email, Privilege, Password, Active)
+INSERT INTO Employee (FirstName, LastName, Email, Privilege, Password, IsActive)
 VALUES ('Richard', 'McKinney', 'm.rich@discountauto.com', 'admin', '8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918', true),
 ('Austin', 'Semple', 's.austin@discountauto.com', 'admin', '8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918', true),
 ('Alexandru', 'Muresanu', 'm.alex@discountauto.com', 'admin', '8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918', true),
