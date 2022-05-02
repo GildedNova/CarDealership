@@ -4,10 +4,10 @@
  */
 package ara.cardealership.Controller;
 
+import ara.cardealership.dao.CarDao;
 import ara.cardealership.dao.EmployeeDao;
+import ara.cardealership.dao.SaleDao;
 import ara.cardealership.dto.CarDto;
-import ara.cardealership.dto.EmployeeDto;
-import ara.cardealership.dto.SaleDto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
