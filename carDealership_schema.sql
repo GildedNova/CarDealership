@@ -120,4 +120,14 @@ CREATE TABLE `Special`(
 `isActive` BOOLEAN DEFAULT TRUE
 );
 
+-- Contact ---------------------------------------------------------
+DROP TABLE IF EXISTS `Contact`;
+CREATE TABLE `Contact`(
+`Name` VARCHAR(50)  NOT NULL,
+`Message` VARCHAR(1000)  NOT NULL,
+`Phone` VARCHAR(20),
+`Email` VARCHAR (50),
+`VIN` varchar(45)
+);
+
 
