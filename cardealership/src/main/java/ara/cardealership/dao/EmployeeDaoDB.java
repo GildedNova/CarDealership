@@ -71,7 +71,7 @@ public class EmployeeDaoDB implements EmployeeDao {
 
     @Override
     public void deleteEmployeeById(int id) {
-                final String UPDATE_EMPLOYEE = "UPDATE employee SET active = false WHERE id = ?";
+                final String UPDATE_EMPLOYEE = "UPDATE employee SET active = 0 WHERE id = ?";
         jdbc.update(UPDATE_EMPLOYEE,id);
     }
 
