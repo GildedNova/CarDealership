@@ -26,6 +26,24 @@ public class CarDto {
     private float msrp;
     private float salePrice;
     private String description;
+    private boolean Featured;
+    private boolean Sold;
+
+    public boolean isFeatured() {
+        return Featured;
+    }
+
+    public void setFeatured(boolean Featured) {
+        this.Featured = Featured;
+    }
+
+    public boolean isSold() {
+        return Sold;
+    }
+
+    public void setSold(boolean Sold) {
+        this.Sold = Sold;
+    }
 
     public int getCarId() {
         return carId;
