@@ -13,7 +13,7 @@ CREATE TABLE `Employee` (
   `Email` varchar(45) NOT NULL,
   `Privilege` varchar(45) NOT NULL,
   `Password` varchar(64) NOT NULL,
-  `IsActive` BOOLEAN NOT NULL,
+  `Active` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -54,7 +54,7 @@ CREATE TABLE `Transmission` (
   `Transmission` varchar(25) NOT NULL,
   PRIMARY KEY (`Transmission`)
 );
--- BEGIN tables for car attributes --
+-- END tables for car attributes --
 
 
 DROP TABLE IF EXISTS `Car`;
@@ -72,7 +72,9 @@ CREATE TABLE `Car` (
   `Milage` INT NOT NULL,
   `MSRP` decimal(12,2) NOT NULL,
   `SalePrice` decimal(12,2) NOT NULL,
-  `Description` mediumtext,
+  `Description` VARCHAR(1000),
+  `isFeatured` BOOLEAN DEFAULT FALSE,
+  `isSold` BOOLEAN DEFAULT FALSE,
   PRIMARY KEY (`id`),
   KEY `fk_make` (`MakeID`),
   KEY `fk_model` (`ModelID`),
@@ -107,6 +109,15 @@ CREATE TABLE `Sale` (
   CONSTRAINT `fk_purchaseType` FOREIGN KEY (`PurchaseType`) REFERENCES `PurchaseType` (`Type`),
   CONSTRAINT `fk_carId` FOREIGN KEY (`CarId`) REFERENCES `Car` (`id`),
   CONSTRAINT `fk_saleEmployeeId` FOREIGN KEY (`EmployeeId`) REFERENCES `Employee` (`id`)
+);
+
+-- Specials ---------------------------------------------------------
+DROP TABLE IF EXISTS `Special`;
+CREATE TABLE `Special`(
+`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`Title` VARCHAR(50) NOT NULL,
+`Body` VARCHAR(1000) NOT NULL,
+`isActive` BOOLEAN DEFAULT TRUE
 );
 
 
