@@ -11,6 +11,7 @@ import java.util.Objects;
  * @author Rich
  */
 public class SaleDto {
+    private int saleId;
     private String name;
     private String phone;
     private String email;
@@ -23,6 +24,14 @@ public class SaleDto {
     private String purchaseType;
     private int employeeId;
 
+    public int getSaleId() {
+        return saleId;
+    }
+
+    public void setSaleId(int saleId) {
+        this.saleId = saleId;
+    }
+    
     public String getName() {
         return name;
     }
