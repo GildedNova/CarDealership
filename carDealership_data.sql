@@ -1,7 +1,7 @@
 USE carDealership;
 
 -- ----------------------------------------------Employees--------------------------------------------------------------------------------------
-INSERT INTO Employee (FirstName, LastName, Email, Privilege, Password, IsActive)
+INSERT INTO Employee (FirstName, LastName, Email, Privilege, Password, Active)
 VALUES ('Richard', 'McKinney', 'm.rich@discountauto.com', 'admin', '8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918', true),
 ('Austin', 'Semple', 's.austin@discountauto.com', 'admin', '8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918', true),
 ('Alexandru', 'Muresanu', 'm.alex@discountauto.com', 'admin', '8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918', true),
@@ -63,6 +63,12 @@ VALUES
 1,
 1);
  
+ -- ---------------------------------------------specials --------------------------------------------------------------------------------------------
+ INSERT INTO Special (title, body)
+ Values ('Free Oil Change', 'Oil is the lifeblood of your engine. It reduces friction, lessens wear, provides lubrication, forms a seal between the pistons, rings and cylinder walls while helping to cool engine parts. Without the cleaning action of new oil, carbon and varnish buildup would be toxic to the engine. And engine oil even dampens the shock and noise of moving parts.'),
+ ('Free Brakes', 'From the brake pedal to hydraulic brake fluid, brake master cylinder to power brake booster, drum brakes to disc brakes and electronic anti-lock brake sensors, FOC technicians know every part of your brake system inside and out and can perform brake repair on any make and model.'),
+ ('Free Tire Service', 'Oil is the lifeblood of your engine. It reduces friction, lessens wear, provides lubrication, forms a seal between the pistons, rings and cylinder walls while helping to cool engine parts. Without the cleaning action of new oil, carbon and varnish buildup would be toxic to the engine. And engine oil even dampens the shock and noise of moving parts.');
+ 
 -- Selections:
 Select * from employee;
 Select * from bodystyle;
@@ -73,5 +79,6 @@ Select * from model;
 Select * from transmission;
 Select * from sale;
 Select * from purchaseType;
+
 
 
