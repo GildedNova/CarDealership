@@ -17,9 +17,9 @@ public interface SpecialDao {
 
     List<SpecialDto> getAllSpecials();
 
-    SpecialDto addSpecial(SpecialDto Special);
+    SpecialDto addSpecial(SpecialDto special);
 
-    void updateSpecial(SpecialDto Special);
+    void updateSpecial(SpecialDto special);
 
     void deleteSpecialById(int id);
 }
