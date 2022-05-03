@@ -290,7 +290,7 @@ public class DealershipController {
   //--------------------------------------------------------------------------------  
     
     
-    @GetMapping("sales/purchase")//show purchase page
+    @GetMapping("admin/vehicles")//show purchase page
     public String showvehiclestoedit(CarDto car, HttpServletRequest request, Model model) {
         
         List<CarDto> carsav = avcars();
@@ -301,9 +301,30 @@ public class DealershipController {
     }  
     
     
+    @GetMapping("admin/editvehicle")//show purchase page
+    public String editvehicle(CarDto car, HttpServletRequest request, Model model) {
+        
+        String carID = request.getParameter("carID");
+        
+        CarDto tempcar = carDao.getCarById(Integer.parseInt(carID));
+        
+        model.addAttribute("cars", tempcar);
+         
+        return "redirect:/admin/editVehicle.html";
+    }     
     
     
-    
+    @PostMapping("admin/editvehicle")//show purchase page
+    public String posteditvehicle(CarDto car, HttpServletRequest request, Model model) {
+        
+        String carID = request.getParameter("carID");
+        
+        CarDto tempcar = carDao.getCarById(Integer.parseInt(carID));
+        
+        model.addAttribute("cars", tempcar);
+         
+        return "redirect:/admin/editVehicle.html";
+    }  
     
     
     
