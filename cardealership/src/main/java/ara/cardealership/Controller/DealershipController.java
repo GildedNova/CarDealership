@@ -22,6 +22,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -101,7 +102,7 @@ public class DealershipController {
         model.addAttribute("cars", carsShown);
         //model.addAttribute("teachers", employees);
         // model.addAttribute("students", sales);
-        return "redirect:/inventory/used.html";
+        return "inventory/used.html";
     }
 
     @PostMapping("details")

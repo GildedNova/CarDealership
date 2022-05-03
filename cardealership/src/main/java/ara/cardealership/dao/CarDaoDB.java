@@ -39,7 +39,7 @@ public class CarDaoDB implements CarDao {
 
     @Override
     public List<CarDto> getAllCars() {
-        final String GET_ALL_CARS = "SELVE * FROM car";
+        final String GET_ALL_CARS = "SELECT * FROM car";
         return jdbc.query(GET_ALL_CARS, new CarMapper());
     }
 
