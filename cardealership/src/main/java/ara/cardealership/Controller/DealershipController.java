@@ -291,7 +291,7 @@ public class DealershipController {
     
     
     @GetMapping("sales/purchase")//show purchase page
-    public String showeditvehicle(CarDto car, HttpServletRequest request, Model model) {
+    public String showvehiclestoedit(CarDto car, HttpServletRequest request, Model model) {
         
         List<CarDto> carsav = avcars();
         
