@@ -19,7 +19,4 @@ public interface SaleDao {
 
     SaleDto addSale(SaleDto sale);
 
-    void updateSale(SaleDto sale);
-
-    void deleteSaleById(int id);
 }

@@ -12,6 +12,7 @@ import java.util.Objects;
  */
 public class SaleDto {
     private int saleId;
+    private String dateAdded;
     private String name;
     private String phone;
     private String email;
@@ -23,6 +24,17 @@ public class SaleDto {
     private float purchasePrice;
     private String purchaseType;
     private int employeeId;
+    private int carId;
+
+    public int getCarId() {
+        return carId;
+    }
+
+    public void setCarId(int carId) {
+        this.carId = carId;
+    }
+    
+    
 
     public int getSaleId() {
         return saleId;
@@ -40,6 +52,16 @@ public class SaleDto {
         this.name = name;
     }
 
+    public String getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(String dateAdded) {
+        this.dateAdded = dateAdded;
+    }
+
+    
+    
     public String getPhone() {
         return phone;
     }
