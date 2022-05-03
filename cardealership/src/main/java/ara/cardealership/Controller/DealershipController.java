@@ -13,6 +13,7 @@ import ara.cardealership.dao.SaleDao;
 import ara.cardealership.dao.SpecialDao;
 import ara.cardealership.dto.CarDto;
 import ara.cardealership.dto.ContactDto;
+import ara.cardealership.dto.SaleDto;
 import ara.cardealership.dto.SpecialDto;
 import java.util.ArrayList;
 import java.util.List;
@@ -162,7 +163,7 @@ public class DealershipController {
         return "redirect:/contact.html";
     }
     
-    @GetMapping("sales/index")
+    @GetMapping("sales/index")//show all cars to purchase
     public String showsales(Model model) {
         List<CarDto> carsaq = carDao.getAllCars();
         List<CarDto> carsShown = new ArrayList();
@@ -174,20 +175,66 @@ public class DealershipController {
     }
     
     
-    @GetMapping("sales/purchase")
+    @GetMapping("sales/purchase")//show purchase page
     public String showsale(CarDto car, HttpServletRequest request, Model model) {
         
-        String interID = request.getParameter("CarID");
-     
-        car = carDao.getCarById(Integer.parseInt(interID));
-        
-        
-        model.addAttribute("car", car);
-       
+        String carID = request.getParameter("CarID");
+         
         return "redirect:/sales/purchase.html";
     }
     
     
     
+    @PostMapping("sales/purchase")//do a purchase request
+    public String dosale(SaleDto sale, HttpServletRequest request, Model model) {
+    
+     String name = request.getParameter("Name");
+    
+     String Phone = request.getParameter("Phone");
+    
+     String Street1 = request.getParameter("Street1");
+    
+     String Street2 = request.getParameter("Street2");
+    
+     String City = request.getParameter("City");
+    
+     String Zipcode = request.getParameter("Zipcode");
+    
+     String State = request.getParameter("State");
+    
+     String price = request.getParameter("Price");
+    
+     float pprice  = Float.parseFloat(price);
+    
+     String ptype = request.getParameter("purchasetype");
+    
+     sale.setName(name);
+     
+     sale.setPhone(Phone);
+     
+     sale.setStreet1(Street1);
+     
+     sale.setStreet2(Street2);
+     
+     sale.setCity(City);
+     
+     sale.setZipCode(Zipcode);
+     
+     sale.setState(State);
+     
+     sale.setPurchasePrice(pprice);
+     
+     sale.setPurchaseType(ptype);
+     
+     //setemployee once we have security
+        
+     saleDao.addSale(sale);   
+   
+    
+    return "redirect:/sales/sales.html";
+    
+    }
+    
+  
     
 }
