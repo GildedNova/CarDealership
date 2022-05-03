@@ -66,8 +66,7 @@ public class DealershipController {
         }
 
         model.addAttribute("cars", carsShown);
-        //model.addAttribute("teachers", employees);
-        // model.addAttribute("students", sales);
+      
         return "index.html";
     }
 
@@ -83,8 +82,7 @@ public class DealershipController {
         }
 
         model.addAttribute("cars", carsShown);
-        //model.addAttribute("teachers", employees);
-        // model.addAttribute("students", sales);
+        
         return "redirect:/inventory/new.html";
     }
 
@@ -100,8 +98,7 @@ public class DealershipController {
         }
 
         model.addAttribute("cars", carsShown);
-        //model.addAttribute("teachers", employees);
-        // model.addAttribute("students", sales);
+       
         return "inventory/used.html";
     }
 
@@ -118,7 +115,7 @@ public class DealershipController {
     }
     
     
-        @GetMapping("specials")
+    @GetMapping("specials")
     public String specials (Model model) {
         
         List<SpecialDto> specials = specialDao.getAllSpecials();
@@ -172,8 +169,7 @@ public class DealershipController {
 
 
         model.addAttribute("cars", carsShown);
-        //model.addAttribute("teachers", employees);
-        // model.addAttribute("students", sales);
+     
         return "redirect:/sales/sales.html";
     }
     
@@ -187,8 +183,7 @@ public class DealershipController {
         
         
         model.addAttribute("car", car);
-        //model.addAttribute("teachers", employees);
-        // model.addAttribute("students", sales);
+       
         return "redirect:/sales/purchase.html";
     }
     
