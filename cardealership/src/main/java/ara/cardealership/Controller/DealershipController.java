@@ -88,7 +88,7 @@ public class DealershipController {
     }
       
         
-        
+ //--------------------------------------------------------------------------------         
         
         
     @GetMapping("index")
@@ -107,6 +107,9 @@ public class DealershipController {
         return "index.html";
     }
 
+    //--------------------------------------------------------------------------------  
+    
+    
     @GetMapping("Inventory/New")
     public String displaynew(Model model) {
         List<CarDto> carsaq = avcars();
@@ -152,6 +155,8 @@ public class DealershipController {
     }
     
     
+    
+   //--------------------------------------------------------------------------------   
     @GetMapping("specials")
     public String specials (Model model) {
         
@@ -162,6 +167,10 @@ public class DealershipController {
 
         return "redirect:/specials.html";
     }
+    
+    
+    
+    //--------------------------------------------------------------------------------  
     
     
     @GetMapping("contact")
@@ -199,13 +208,18 @@ public class DealershipController {
         return "redirect:/contact.html";
     }
     
+    
+    
+    //-------------------------------------------------------------------------
+   
+    
     @GetMapping("sales/index")//show all cars to purchase
     public String showsales(Model model) {
-        List<CarDto> carsaq = avcars();
-        List<CarDto> carsShown = new ArrayList();
+        List<CarDto> carsav = avcars();
+       
 
 
-        model.addAttribute("cars", carsShown);
+        model.addAttribute("cars", carsav);
      
         return "redirect:/sales/sales.html";
     }
@@ -271,6 +285,35 @@ public class DealershipController {
     
     }
     
-  
+
+    
+  //--------------------------------------------------------------------------------  
+    
+    
+    @GetMapping("sales/purchase")//show purchase page
+    public String showeditvehicle(CarDto car, HttpServletRequest request, Model model) {
+        
+        List<CarDto> carsav = avcars();
+        
+        model.addAttribute("cars", carsav);
+         
+        return "redirect:/admin/vehicles.html";
+    }  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
