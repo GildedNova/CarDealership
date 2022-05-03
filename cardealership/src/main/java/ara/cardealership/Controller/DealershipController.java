@@ -12,6 +12,7 @@ import ara.cardealership.dao.EmployeeDao;
 import ara.cardealership.dao.SaleDao;
 import ara.cardealership.dao.SpecialDao;
 import ara.cardealership.dto.CarDto;
+import ara.cardealership.dto.ContactDto;
 import ara.cardealership.dto.SpecialDto;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,10 @@ public class DealershipController {
 
     @Autowired
     SpecialDao specialDao;
+    
+    @Autowired
+    ContactDao contactdao;
+    
 
     @GetMapping("index")
     public String displayfeatured(Model model) {
@@ -102,7 +107,7 @@ public class DealershipController {
     @PostMapping("details")
     public String carDetails(CarDto carEather, HttpServletRequest request, Model model) {
 
-        String carID = request.getParameter("carId");
+        String carID = request.getParameter("carID");
 
         carEather = carDao.getCarById(Integer.parseInt(carID));
 
@@ -117,7 +122,7 @@ public class DealershipController {
         
         List<SpecialDto> specials = specialDao.getAllSpecials();
         
-        model.addAttribute("car", specials);
+        model.addAttribute("specials", specials);
 
 
         return "redirect:/specials.html";
@@ -127,22 +132,65 @@ public class DealershipController {
     @GetMapping("contact")
     public String contact (Model model) {
         
-     
+        List<ContactDto> listcontacts = contactdao.getAllContacts();
+        model.addAttribute("Contacts", listcontacts);
 
 
         return "redirect:/contact.html";
     }
     
+    
+    
     @PostMapping("addcontact")
-    public String addcontact (Model model) {
+    public String addcontact (ContactDto contact, HttpServletRequest request, Model model) {
         
-        List<SpecialDto> specials = specialDao.getAllSpecials();
+        //check if contact exists for later
+        String name = request.getParameter("Name");
         
-        model.addAttribute("car", specials);
+        String Email = request.getParameter("Email");
+        
+        String Phone = request.getParameter("Phone");
+        
+        String Message = request.getParameter("Message");
+        
+        contact.setName(name);
+        contact.setEmail(Email);
+        contact.setPhone(Email);
+        contact.setMessage(Email);
+
+        contactdao.addContact(contact);
 
 
         return "redirect:/contact.html";
     }
+    
+    @GetMapping("sales/index")
+    public String showsales(Model model) {
+        List<CarDto> carsaq = carDao.getAllCars();
+        List<CarDto> carsShown = new ArrayList();
+
+
+        model.addAttribute("cars", carsShown);
+        //model.addAttribute("teachers", employees);
+        // model.addAttribute("students", sales);
+        return "redirect:/sales/sales.html";
+    }
+    
+    
+    @GetMapping("sales/purchase")
+    public String showsale(CarDto car, HttpServletRequest request, Model model) {
+        
+        String interID = request.getParameter("CarID");
+     
+        car = carDao.getCarById(Integer.parseInt(interID));
+        
+        
+        model.addAttribute("car", car);
+        //model.addAttribute("teachers", employees);
+        // model.addAttribute("students", sales);
+        return "redirect:/sales/purchase.html";
+    }
+    
     
     
     
