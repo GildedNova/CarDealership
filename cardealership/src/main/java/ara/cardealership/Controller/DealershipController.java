@@ -12,6 +12,7 @@ import ara.cardealership.dao.EmployeeDao;
 import ara.cardealership.dao.SaleDao;
 import ara.cardealership.dao.SpecialDao;
 import ara.cardealership.dto.CarDto;
+import ara.cardealership.dto.SpecialDto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -110,4 +111,40 @@ public class DealershipController {
 
         return "redirect:/details";
     }
+    
+    
+        @GetMapping("specials")
+    public String specials (Model model) {
+        
+        List<SpecialDto> specials = specialDao.getAllSpecials();
+        
+        model.addAttribute("car", specials);
+
+
+        return "redirect:/specials.html";
+    }
+    
+    
+    @GetMapping("contact")
+    public String contact (Model model) {
+        
+     
+
+
+        return "redirect:/contact.html";
+    }
+    
+    @PostMapping("addcontact")
+    public String addcontact (Model model) {
+        
+        List<SpecialDto> specials = specialDao.getAllSpecials();
+        
+        model.addAttribute("car", specials);
+
+
+        return "redirect:/contact.html";
+    }
+    
+    
+    
 }
