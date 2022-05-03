@@ -123,6 +123,7 @@ CREATE TABLE `Special`(
 -- Contact ---------------------------------------------------------
 DROP TABLE IF EXISTS `Contact`;
 CREATE TABLE `Contact`(
+`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 `Name` VARCHAR(50)  NOT NULL,
 `Message` VARCHAR(1000)  NOT NULL,
 `Phone` VARCHAR(20),
