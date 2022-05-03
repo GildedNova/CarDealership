@@ -15,7 +15,9 @@ public class CarDto {
     private int carId;
     private String vinNum;
     private int makeId;
+    private String makeName;
     private int modelId;
+    private String modelName;
     private String type;
     private String bodyStyle;
     private int year;
@@ -29,6 +31,22 @@ public class CarDto {
     private boolean Featured;
     private boolean Sold;
 
+    public String getModelName() {
+        return modelName;
+    }
+
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
+    }
+    
+    public String getMakeName() {
+        return makeName;
+    }
+
+    public void setMakeName(String makeName) {
+        this.makeName = makeName;
+    }
+    
     public boolean isFeatured() {
         return Featured;
     }
