@@ -12,6 +12,8 @@ import ara.cardealership.dao.EmployeeDao;
 import ara.cardealership.dao.SaleDao;
 import ara.cardealership.dao.SpecialDao;
 import ara.cardealership.dto.CarDto;
+import ara.cardealership.dto.ContactDto;
+import ara.cardealership.dto.SaleDto;
 import ara.cardealership.dto.SpecialDto;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,10 +50,50 @@ public class DealershipController {
 
     @Autowired
     SpecialDao specialDao;
+    
+    @Autowired
+    ContactDao contactdao;
+    
+    public List<CarDto> avcars()//get available cars
+    {
+        List<CarDto> carsaq = carDao.getAllCars();
 
+        List<CarDto> carsShown = new ArrayList();
+
+        for (CarDto cartemp : carsaq) {
+            if (cartemp.isSold()) {
+                carsShown.add(cartemp);
+            }
+        }
+        
+      return carsShown;
+
+    }
+    
+    
+    public List<CarDto> socars()//get available cars
+    {
+        List<CarDto> carsaq = carDao.getAllCars();
+
+        List<CarDto> carsShown = new ArrayList();
+
+        for (CarDto cartemp : carsaq) {
+            if (cartemp.isSold() == false) {
+                carsShown.add(cartemp);
+            }
+        }
+        
+      return carsShown;
+
+    }
+      
+        
+ //--------------------------------------------------------------------------------         
+        
+        
     @GetMapping("index")
     public String displayfeatured(Model model) {
-        List<CarDto> carsaq = carDao.getAllCars();
+        List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
 
         for (CarDto cartemp : carsaq) {
@@ -61,14 +103,16 @@ public class DealershipController {
         }
 
         model.addAttribute("cars", carsShown);
-        //model.addAttribute("teachers", employees);
-        // model.addAttribute("students", sales);
+      
         return "index.html";
     }
 
+    //--------------------------------------------------------------------------------  
+    
+    
     @GetMapping("Inventory/New")
     public String displaynew(Model model) {
-        List<CarDto> carsaq = carDao.getAllCars();
+        List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
 
         for (CarDto cartemp : carsaq) {
@@ -78,14 +122,13 @@ public class DealershipController {
         }
 
         model.addAttribute("cars", carsShown);
-        //model.addAttribute("teachers", employees);
-        // model.addAttribute("students", sales);
+        
         return "redirect:/inventory/new.html";
     }
 
     @GetMapping("Inventory/Used")
     public String displayUsed(Model model) {
-        List<CarDto> carsaq = carDao.getAllCars();
+        List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
 
         for (CarDto cartemp : carsaq) {
@@ -95,15 +138,14 @@ public class DealershipController {
         }
 
         model.addAttribute("cars", carsShown);
-        //model.addAttribute("teachers", employees);
-        // model.addAttribute("students", sales);
+       
         return "inventory/used.html";
     }
 
     @PostMapping("details")
     public String carDetails(CarDto carEather, HttpServletRequest request, Model model) {
 
-        String carID = request.getParameter("carId");
+        String carID = request.getParameter("carID");
 
         carEather = carDao.getCarById(Integer.parseInt(carID));
 
@@ -113,37 +155,164 @@ public class DealershipController {
     }
     
     
-        @GetMapping("specials")
+    
+   //--------------------------------------------------------------------------------   
+    @GetMapping("specials")
     public String specials (Model model) {
         
         List<SpecialDto> specials = specialDao.getAllSpecials();
         
-        model.addAttribute("car", specials);
+        model.addAttribute("specials", specials);
 
 
         return "redirect:/specials.html";
     }
     
     
+    
+    //--------------------------------------------------------------------------------  
+    
+    
     @GetMapping("contact")
     public String contact (Model model) {
         
-     
+        List<ContactDto> listcontacts = contactdao.getAllContacts();
+        model.addAttribute("Contacts", listcontacts);
 
 
         return "redirect:/contact.html";
     }
     
+    
+    
     @PostMapping("addcontact")
-    public String addcontact (Model model) {
+    public String addcontact (ContactDto contact, HttpServletRequest request, Model model) {
         
-        List<SpecialDto> specials = specialDao.getAllSpecials();
+        //check if contact exists for later
+        String name = request.getParameter("Name");
         
-        model.addAttribute("car", specials);
+        String Email = request.getParameter("Email");
+        
+        String Phone = request.getParameter("Phone");
+        
+        String Message = request.getParameter("Message");
+        
+        contact.setName(name);
+        contact.setEmail(Email);
+        contact.setPhone(Email);
+        contact.setMessage(Email);
+
+        contactdao.addContact(contact);
 
 
         return "redirect:/contact.html";
     }
+    
+    
+    
+    //-------------------------------------------------------------------------
+   
+    
+    @GetMapping("sales/index")//show all cars to purchase
+    public String showsales(Model model) {
+        List<CarDto> carsav = avcars();
+       
+
+
+        model.addAttribute("cars", carsav);
+     
+        return "redirect:/sales/sales.html";
+    }
+    
+    
+    @GetMapping("sales/purchase")//show purchase page
+    public String showsale(CarDto car, HttpServletRequest request, Model model) {
+        
+        String carID = request.getParameter("CarID");
+         
+        return "redirect:/sales/purchase.html";
+    }
+    
+    
+    
+    @PostMapping("sales/purchase")//do a purchase request
+    public String dosale(SaleDto sale, HttpServletRequest request, Model model) {
+    
+     String name = request.getParameter("Name");
+    
+     String Phone = request.getParameter("Phone");
+    
+     String Street1 = request.getParameter("Street1");
+    
+     String Street2 = request.getParameter("Street2");
+    
+     String City = request.getParameter("City");
+    
+     String Zipcode = request.getParameter("Zipcode");
+    
+     String State = request.getParameter("State");
+    
+     String price = request.getParameter("Price");
+    
+     float pprice  = Float.parseFloat(price);
+    
+     String ptype = request.getParameter("purchasetype");
+    
+     sale.setName(name);
+     
+     sale.setPhone(Phone);
+     
+     sale.setStreet1(Street1);
+     
+     sale.setStreet2(Street2);
+     
+     sale.setCity(City);
+     
+     sale.setZipCode(Zipcode);
+     
+     sale.setState(State);
+     
+     sale.setPurchasePrice(pprice);
+     
+     sale.setPurchaseType(ptype);
+     
+     //setemployee once we have security
+        
+     saleDao.addSale(sale);   
+   
+    
+    return "redirect:/sales/sales.html";
+    
+    }
+    
+
+    
+  //--------------------------------------------------------------------------------  
+    
+    
+    @GetMapping("sales/purchase")//show purchase page
+    public String showvehiclestoedit(CarDto car, HttpServletRequest request, Model model) {
+        
+        List<CarDto> carsav = avcars();
+        
+        model.addAttribute("cars", carsav);
+         
+        return "redirect:/admin/vehicles.html";
+    }  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
