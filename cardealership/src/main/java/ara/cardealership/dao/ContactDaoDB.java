@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -31,6 +32,7 @@ public class ContactDaoDB implements ContactDao {
     }
 
     @Override
+    @Transactional
     public ContactDto addContact(ContactDto contact) {
         final String INSERT_CONTACT = "INSERT INTO contact(name, message, phone,"
                 + "email, vid) VALUES (?, ?, ?, ?, ?)";
@@ -46,6 +48,8 @@ public class ContactDaoDB implements ContactDao {
         return contact;
     }
 
+
+    
     public static final class ContactMapper implements RowMapper<ContactDto> {
 
         @Override

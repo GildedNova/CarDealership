@@ -39,7 +39,7 @@ public class CarDaoDB implements CarDao {
 
     @Override
     public List<CarDto> getAllCars() {
-        final String GET_ALL_CARS = "SELECT * FROM car";
+        final String GET_ALL_CARS = "SELECT *, make.name as makeName, model.name as modelName FROM car inner join make on car.makeId = make.id inner join model on car.modelId = model.id";
         return jdbc.query(GET_ALL_CARS, new CarMapper());
     }
 
@@ -179,6 +179,8 @@ public class CarDaoDB implements CarDao {
             car.setDescription(rs.getString("Description"));
             car.setFeatured(rs.getBoolean("isFeatured"));
             car.setSold(rs.getBoolean("isSold"));
+            car.setMakeName(rs.getString("makename"));
+            car.setModelName(rs.getString("modelname"));
 
             return car;
         }
