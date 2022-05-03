@@ -54,10 +54,46 @@ public class DealershipController {
     @Autowired
     ContactDao contactdao;
     
+    public List<CarDto> avcars()//get available cars
+    {
+        List<CarDto> carsaq = carDao.getAllCars();
 
+        List<CarDto> carsShown = new ArrayList();
+
+        for (CarDto cartemp : carsaq) {
+            if (cartemp.isSold()) {
+                carsShown.add(cartemp);
+            }
+        }
+        
+      return carsShown;
+
+    }
+    
+    
+    public List<CarDto> socars()//get available cars
+    {
+        List<CarDto> carsaq = carDao.getAllCars();
+
+        List<CarDto> carsShown = new ArrayList();
+
+        for (CarDto cartemp : carsaq) {
+            if (cartemp.isSold() == false) {
+                carsShown.add(cartemp);
+            }
+        }
+        
+      return carsShown;
+
+    }
+      
+        
+        
+        
+        
     @GetMapping("index")
     public String displayfeatured(Model model) {
-        List<CarDto> carsaq = carDao.getAllCars();
+        List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
 
         for (CarDto cartemp : carsaq) {
@@ -73,7 +109,7 @@ public class DealershipController {
 
     @GetMapping("Inventory/New")
     public String displaynew(Model model) {
-        List<CarDto> carsaq = carDao.getAllCars();
+        List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
 
         for (CarDto cartemp : carsaq) {
@@ -89,7 +125,7 @@ public class DealershipController {
 
     @GetMapping("Inventory/Used")
     public String displayUsed(Model model) {
-        List<CarDto> carsaq = carDao.getAllCars();
+        List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
 
         for (CarDto cartemp : carsaq) {
@@ -165,7 +201,7 @@ public class DealershipController {
     
     @GetMapping("sales/index")//show all cars to purchase
     public String showsales(Model model) {
-        List<CarDto> carsaq = carDao.getAllCars();
+        List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
 
 
