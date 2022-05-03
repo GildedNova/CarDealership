@@ -6,6 +6,7 @@ package ara.cardealership.dao;
 
 import ara.cardealership.dto.CarDto;
 import ara.cardealership.dto.MakeDto;
+import ara.cardealership.dto.ModelDto;
 import java.util.List;
 
 /**
@@ -20,21 +21,21 @@ public interface CarDao {
 
     CarDto addCar(CarDto car);
 
-    void updateCourse(CarDto car);
+    void updateCar(CarDto car);
 
     void deleteCarById(int id);
 
-    List<String> getTransmissions();
+    List<String> getAllTransmissions();
 
-    List<String> getBodyStyles();
+    List<String> getAllBodyStyles();
 
-    List<String> getColors();
+    List<String> getAllColors();
 
-    List<MakeDto> getMakes();
+    List<MakeDto> getAllMakes();
 
-    List<String> getModels();
+    List<ModelDto> getAllModels();
 
     MakeDto addMake(MakeDto make);
     
-    void addModel(String model);
+    ModelDto addModel(ModelDto model);
 }

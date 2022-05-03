@@ -9,16 +9,16 @@ package ara.cardealership.dto;
  * @author Rich
  */
 public class MakeDto {
-    private String makeId;
+    private int makeId;
     private String name;
     private int employeeId;
     private String dateAdded;
 
-    public String getMakeId() {
+    public int getMakeId() {
         return makeId;
     }
 
-    public void setMakeId(String makeId) {
+    public void setMakeId(int makeId) {
         this.makeId = makeId;
     }
 
