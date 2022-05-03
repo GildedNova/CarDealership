@@ -4,7 +4,6 @@
  */
 package ara.cardealership.dao;
 
-import ara.cardealership.dto.EmployeeDto;
 import ara.cardealership.dto.SpecialDto;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,11 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Rich
  */
+
+@Repository
 public class SpecialDaoDB implements SpecialDao {
 
     @Autowired
