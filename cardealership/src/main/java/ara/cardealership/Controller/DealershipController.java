@@ -61,7 +61,7 @@ public class DealershipController {
         List<CarDto> carsShown = new ArrayList();
 
         for (CarDto cartemp : carsaq) {
-            if (cartemp.isSold()) {
+            if (cartemp.isSold() == false) {
                 carsShown.add(cartemp);
             }
         }
@@ -78,7 +78,7 @@ public class DealershipController {
         List<CarDto> carsShown = new ArrayList();
 
         for (CarDto cartemp : carsaq) {
-            if (cartemp.isSold() == false) {
+            if (cartemp.isSold() == true) {
                 carsShown.add(cartemp);
             }
         }
