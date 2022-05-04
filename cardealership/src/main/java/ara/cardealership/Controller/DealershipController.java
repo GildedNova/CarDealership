@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class DealershipController {
 
-    @Autowired
+    @Autowired//adding by magic all the constructors through Springtm
     CarDao carDao;
     
     @Autowired
@@ -71,7 +71,7 @@ public class DealershipController {
     }
     
     
-    public List<CarDto> socars()//get available cars
+    public List<CarDto> socars()//get all sold cars
     {
         List<CarDto> carsaq = carDao.getAllCars();
 
@@ -142,7 +142,7 @@ public class DealershipController {
         return "inventory/used.html";
     }
 
-    @PostMapping("details")
+    @GetMapping("details")//a weird page that shows the details of a list that I'm not sure works
     public String carDetails(CarDto carEather, HttpServletRequest request, Model model) {
 
         String carID = request.getParameter("carID");
@@ -157,7 +157,7 @@ public class DealershipController {
     
     
    //--------------------------------------------------------------------------------   
-    @GetMapping("specials")
+    @GetMapping("specials")//page with specials
     public String specials (Model model) {
         
         List<SpecialDto> specials = specialDao.getAllSpecials();
@@ -170,14 +170,14 @@ public class DealershipController {
     
     
     
-    //--------------------------------------------------------------------------------  
+    //--------------------------------------------------------------------------------  contacts
     
     
-    @GetMapping("contact")
+    @GetMapping("contact")//page to add a contact 
     public String contact (Model model) {
         
         List<ContactDto> listcontacts = contactdao.getAllContacts();
-        model.addAttribute("Contacts", listcontacts);
+        model.addAttribute("Contacts", listcontacts);//this is only useful to check if a contact already exists not fully necessary
 
 
         return "contact/contact.html";
@@ -185,7 +185,7 @@ public class DealershipController {
     
     
     
-    @PostMapping("addcontact")
+    @PostMapping("addcontact")//posting the information for the contact 
     public String addcontact (ContactDto contact, HttpServletRequest request, Model model) {
         
         //check if contact exists for later
@@ -235,7 +235,7 @@ public class DealershipController {
     
     
     
-    @PostMapping("sales/purchase")//do a purchase request
+    @PostMapping("sales/purchase")//do a purchase request or "post"
     public String dosale(SaleDto sale, HttpServletRequest request, Model model) {
     
      String name = request.getParameter("Name");
@@ -290,7 +290,7 @@ public class DealershipController {
   //--------------------------------------------------------------------------------  
     
     
-    @GetMapping("admin/vehicles")//show purchase page
+    @GetMapping("admin/vehicles")//show vehicles for admin to change
     public String showvehiclestoedit(CarDto car, HttpServletRequest request, Model model) {
         
         List<CarDto> carsav = avcars();
@@ -301,7 +301,7 @@ public class DealershipController {
     }  
     
     
-    @GetMapping("admin/editvehicle")//show purchase page
+    @GetMapping("admin/editvehicle")//show a certain car page for admin to edit
     public String editvehicle(CarDto car, HttpServletRequest request, Model model) {
         
         String carID = request.getParameter("carID");
@@ -314,7 +314,7 @@ public class DealershipController {
     }     
     
     
-    @PostMapping("admin/editvehicle")//show purchase page
+    @PostMapping("admin/editvehicle")//make those edit changes
     public String posteditvehicle(CarDto car, HttpServletRequest request, Model model) {
         
         int carID = Integer.parseInt(request.getParameter("year"));
@@ -365,7 +365,7 @@ public class DealershipController {
     }  
     
     
-    @GetMapping("admin/addvehicle")//show purchase page
+    @GetMapping("admin/addvehicle")//page to add a new vehicle
     public String addvehicle(CarDto car, HttpServletRequest request, Model model) {
         
         
@@ -374,7 +374,7 @@ public class DealershipController {
     }     
     
     
-    @PostMapping("admin/addvehicle")//show purchase page
+    @PostMapping("admin/addvehicle")//page to send those changes
     public String postaddvehicle(CarDto car, HttpServletRequest request, Model model) {
         
         
@@ -422,7 +422,7 @@ public class DealershipController {
         return "redirect:/admin/addVehicle.html";
     }  
     
-    
+//--------------------------------------------------------------------------------      
     
     
     
