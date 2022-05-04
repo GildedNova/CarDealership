@@ -39,7 +39,7 @@
                     </div>
                     <div class="row-1">
                         <select class="browser-default custom-select">
-                            <option selected>Make</option>
+                            <option selected></option>
                             <option th:each="make : ${make}"
                                     th:value="${make.name}"
                                     th:text="${make.name}"></option>
@@ -52,7 +52,8 @@
                     </div>
                     <div class="row-1">
                         <select class="browser-default custom-select">
-                            <option selected>Open this select menu</option>
+                            <option selected>New</option>
+                            <option>Used</option>
                         </select>
                     </div>
                     <div class="row">
@@ -70,7 +71,11 @@
                     </div>
                     <div class="row-1">
                         <select class="browser-default custom-select">
-                            <option selected>Open this select menu</option>
+                            <option selected></option>
+                            <option th:each="color : ${color}"
+                                    th:value="${color}"
+                                    th:text="${color}"></option>
+                        </select>
                         </select>
                     </div>
                     <div class="row">
@@ -101,7 +106,11 @@
                     </div>
                     <div class="row-1">
                         <select class="browser-default custom-select">
-                            <option selected>Open this select menu</option>
+                            <option selected></option>
+                            <option th:each="model : ${model}"
+                                    th:value="${model.name}"
+                                    th:text="${model.name}"></option>
+                        </select>
                         </select>
                     </div>
                     <div class="row">
@@ -111,7 +120,11 @@
                     </div>
                     <div class="row-1">
                         <select class="browser-default custom-select">
-                            <option selected>Open this select menu</option>
+                            <option selected></option>
+                            <option th:each="bodyStyle : ${bodyStyle}"
+                                    th:value="${bodyStyle}"
+                                    th:text="${bodyStyle}"></option>
+                        </select>
                         </select>
                     </div>
                     <div class="row">
@@ -121,7 +134,11 @@
                     </div>
                     <div class="row-1">
                         <select class="browser-default custom-select">
-                            <option selected>Open this select menu</option>
+                            <option selected></option>
+                            <option th:each="transmission : ${transmission}"
+                                    th:value="${transmission}"
+                                    th:text="${transmission}"></option>
+                        </select>
                         </select>
                     </div>
                     <div class="row">
@@ -131,7 +148,10 @@
                     </div>
                     <div class="row-1">
                         <select class="browser-default custom-select">
-                            <option selected>Open this select menu</option>
+                            <option selected></option>
+                            <option th:each="color : ${color}"
+                                    th:value="${color}"
+                                    th:text="${color}"></option>
                         </select>
                     </div>
                     <div class="row">
