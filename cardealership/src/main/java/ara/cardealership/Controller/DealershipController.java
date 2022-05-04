@@ -13,6 +13,8 @@ import ara.cardealership.dao.SaleDao;
 import ara.cardealership.dao.SpecialDao;
 import ara.cardealership.dto.CarDto;
 import ara.cardealership.dto.ContactDto;
+import ara.cardealership.dto.MakeDto;
+import ara.cardealership.dto.ModelDto;
 import ara.cardealership.dto.SaleDto;
 import ara.cardealership.dto.SpecialDto;
 import java.util.ArrayList;
@@ -300,10 +302,6 @@ public class DealershipController {
         return "admin/vehicles.html";
     }  
     
-    @GetMapping("admin/addVehicle")
-    public String addVehicle(){
-        return "admin/addVehicle.html";
-    }
     
     @GetMapping("admin/editvehicle")//show a certain car page for admin to edit
     public String editvehicle(CarDto car, HttpServletRequest request, Model model) {
@@ -368,15 +366,27 @@ public class DealershipController {
         return "redirect:/admin/editVehicle.html";
     }  
     
-    
-    @GetMapping("admin/addvehicle")//page to add a new vehicle
-    public String addvehicle(CarDto car, HttpServletRequest request, Model model) {
+    @GetMapping("admin/addVehicle")
+    public String addVehicle(CarDto car, HttpServletRequest request, Model model){
         
+        List<CarDto> cars = avcars();
+        List<MakeDto> makes = carDao.getAllMakes();
+        List<ModelDto> models = carDao.getAllModels();
+        List<String> bodyStyles = carDao.getAllBodyStyles();
+        List<String> transmissions = carDao.getAllTransmissions();
         
-     
-    return "redirect:/admin/addVehicle.html";
-    }     
-    
+        List<String> colors = carDao.getAllColors();
+        List<String> interiors = carDao.getAllColors();
+        
+        model.addAttribute("make", makes);
+        model.addAttribute("model", models);
+        model.addAttribute("bodyStyle", bodyStyles);
+        model.addAttribute("transmission", transmissions);
+        model.addAttribute("color", colors);
+        model.addAttribute("interior", interiors);
+        
+        return "admin/addVehicle.html";
+    }
     
     @PostMapping("admin/addvehicle")//page to send those changes
     public String postaddvehicle(CarDto car, HttpServletRequest request, Model model) {
