@@ -317,6 +317,66 @@ public class DealershipController {
     @PostMapping("admin/editvehicle")//show purchase page
     public String posteditvehicle(CarDto car, HttpServletRequest request, Model model) {
         
+        int carID = Integer.parseInt(request.getParameter("year"));
+        
+        String make = request.getParameter("make");
+        
+        String carmodel = request.getParameter("carmodel");
+        
+        String Type = request.getParameter("Type");
+        
+        String bodyStyle = request.getParameter("bodyStyle");
+        
+        int year = Integer.parseInt(request.getParameter("year"));
+        
+        String transmission = request.getParameter("transmission");
+        
+        String color = request.getParameter("color");//exterior color
+        
+        String interiorcolor = request.getParameter("interiorcolor");
+        
+        int mileage =Integer.parseInt(request.getParameter("Mileage"));
+        
+        String VIN = request.getParameter("VIN");
+        
+        int MSRP =Integer.parseInt(request.getParameter("MSRP"));
+        
+        int salePrice = Integer.parseInt(request.getParameter("saleprice"));
+        
+        car.setCarId(carID);
+        car.setMakeName(make);//add all the info to the object
+        car.setModelName(carmodel);
+        car.setType(Type);
+        car.setBodyStyle(bodyStyle);
+        car.setYear(year);
+        car.setTransmission(transmission);
+        car.setExteriorColor(color);
+        car.setInteriorColor(interiorcolor);
+        car.setMileage(mileage);
+        car.setVinNum(VIN);
+        car.setMsrp(MSRP);
+        car.setSalePrice(salePrice);
+        
+        carDao.addCar(car);
+        
+        model.addAttribute("car", car);
+         
+        return "redirect:/admin/editVehicle.html";
+    }  
+    
+    
+    @GetMapping("admin/addvehicle")//show purchase page
+    public String addvehicle(CarDto car, HttpServletRequest request, Model model) {
+        
+        
+     
+    return "redirect:/admin/addVehicle.html";
+    }     
+    
+    
+        @PostMapping("admin/editvehicle")//show purchase page
+    public String postaddvehicle(CarDto car, HttpServletRequest request, Model model) {
+        
         
         String make = request.getParameter("make");
         
@@ -361,11 +421,6 @@ public class DealershipController {
          
         return "redirect:/admin/editVehicle.html";
     }  
-    
-    
-    
-    
-    
     
     
     
