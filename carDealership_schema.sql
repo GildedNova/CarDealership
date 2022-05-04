@@ -46,7 +46,7 @@ CREATE TABLE `Model` (
   `name` varchar(45) NOT NULL,
   `makeid` INT NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_makeid` FOREIGN KEY (`id`) REFERENCES `Make` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_makeid` FOREIGN KEY (`makeid`) REFERENCES `Make` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 DROP TABLE IF EXISTS `Transmission`;
