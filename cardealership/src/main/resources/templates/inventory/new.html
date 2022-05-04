@@ -83,11 +83,11 @@
 
         <div class="container">
 
-            <div class="card" th:each="car:${cars}">
+            <div class="card" th:each="car:${cars}" style="padding: 3em">
                 <div class="card-header" th:text="${car.makeName + ' ' + car.modelName}" >
                     Car Make & Model
                 </div>
-                <div class="card-body" >
+                <div class="card-body">
                     <div class="row">
                         <div class="col">
                             <h4 class="card-text">Body Style:</h4>
