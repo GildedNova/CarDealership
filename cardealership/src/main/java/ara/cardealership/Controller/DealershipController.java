@@ -367,7 +367,7 @@ public class DealershipController {
 
         String interiorcolor = request.getParameter("interiorcolor");
 
-        int mileage = Integer.parseInt(request.getParameter("Mileage"));
+        int mileage = Integer.parseInt(request.getParameter("mileage"));
 
         String vin = request.getParameter("vin");
 
@@ -396,4 +396,10 @@ public class DealershipController {
     }
 
 //--------------------------------------------------------------------------------      
+
+    @GetMapping("admin/specials")
+    public String displayAdminSpecial(Model model) {
+        return "/admin/specials.html";
+    }
+
 }
