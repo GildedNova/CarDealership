@@ -374,7 +374,7 @@ public class DealershipController {
     }     
     
     
-        @PostMapping("admin/editvehicle")//show purchase page
+    @PostMapping("admin/addvehicle")//show purchase page
     public String postaddvehicle(CarDto car, HttpServletRequest request, Model model) {
         
         
@@ -419,7 +419,7 @@ public class DealershipController {
         
         model.addAttribute("car", car);
          
-        return "redirect:/admin/editVehicle.html";
+        return "redirect:/admin/addVehicle.html";
     }  
     
     
