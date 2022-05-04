@@ -78,7 +78,7 @@ public class SpecialDaoDB implements SpecialDao {
             special.setSpecialId(rs.getInt("id"));
             special.setTitle(rs.getString("Title"));
             special.setBody(rs.getString("Body"));
-            special.setIsActive(rs.getBoolean("active"));
+            special.setIsActive(rs.getBoolean("isActive"));
             return special;
         }
     }

@@ -89,8 +89,8 @@ public class DealershipController {
       
         
  //--------------------------------------------------------------------------------         
-        
-        
+       
+
     @GetMapping("index")
     public String displayfeatured(Model model) {
         List<CarDto> carsaq = avcars();
@@ -110,7 +110,7 @@ public class DealershipController {
     //--------------------------------------------------------------------------------  
     
     
-    @GetMapping("Inventory/New")
+    @GetMapping("inventory/new")
     public String displaynew(Model model) {
         List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
@@ -123,10 +123,10 @@ public class DealershipController {
 
         model.addAttribute("cars", carsShown);
         
-        return "redirect:/inventory/new.html";
+        return "inventory/new.html";
     }
 
-    @GetMapping("Inventory/Used")
+    @GetMapping("inventory/used")
     public String displayUsed(Model model) {
         List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
@@ -165,7 +165,7 @@ public class DealershipController {
         model.addAttribute("specials", specials);
 
 
-        return "redirect:/specials.html";
+        return "special/specials";
     }
     
     
@@ -180,7 +180,7 @@ public class DealershipController {
         model.addAttribute("Contacts", listcontacts);
 
 
-        return "redirect:/contact.html";
+        return "contact/contact.html";
     }
     
     
