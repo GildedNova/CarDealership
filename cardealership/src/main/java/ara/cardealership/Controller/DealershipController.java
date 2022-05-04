@@ -424,4 +424,10 @@ public class DealershipController {
     }
 
 //--------------------------------------------------------------------------------      
+
+    @GetMapping("admin/specials")
+    public String displayAdminSpecial(Model model) {
+        return "/admin/specials.html";
+    }
+
 }
