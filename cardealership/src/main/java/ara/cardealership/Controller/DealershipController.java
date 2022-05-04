@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class DealershipController {
 
-    @Autowired
+    @Autowired//adding by magic all the constructors through Springtm
     CarDao carDao;
     
     @Autowired
@@ -71,7 +71,7 @@ public class DealershipController {
     }
     
     
-    public List<CarDto> socars()//get available cars
+    public List<CarDto> socars()//get all sold cars
     {
         List<CarDto> carsaq = carDao.getAllCars();
 
@@ -91,7 +91,7 @@ public class DealershipController {
  //--------------------------------------------------------------------------------         
         
         
-    @GetMapping("index")
+    @GetMapping("index")//first page with some featured cars
     public String displayfeatured(Model model) {
         List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
@@ -110,7 +110,7 @@ public class DealershipController {
     //--------------------------------------------------------------------------------  
     
     
-    @GetMapping("Inventory/New")
+    @GetMapping("Inventory/New")//shows a page with new cars
     public String displaynew(Model model) {
         List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
@@ -126,7 +126,7 @@ public class DealershipController {
         return "redirect:/inventory/new.html";
     }
 
-    @GetMapping("Inventory/Used")
+    @GetMapping("Inventory/Used")//shows a page with used cars
     public String displayUsed(Model model) {
         List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
@@ -142,7 +142,7 @@ public class DealershipController {
         return "inventory/used.html";
     }
 
-    @PostMapping("details")
+    @GetMapping("details")//a weird page that shows the details of a list that I'm not sure works
     public String carDetails(CarDto carEather, HttpServletRequest request, Model model) {
 
         String carID = request.getParameter("carID");
