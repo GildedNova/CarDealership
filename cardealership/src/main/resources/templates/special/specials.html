@@ -31,24 +31,14 @@
 
         <div class="container">
 
-            <div class="card">
-                <div class="card-title text-center font-weight-bold">
+            <div class="card" th:each="special:${specials}">
+                <div class="card-title text-center font-weight-bold" th:text="${special.title}">
                     Special Title
                 </div>
-                <div class="card-body text">
+                <div class="card-body text" th:text="${special.body}">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare mollis tellus, in pretium mi aliquam at. Quisque suscipit felis facilisis viverra tincidunt. Maecenas sit amet molestie diam. Suspendisse in velit euismod, egestas sem eget, faucibus ligula. Proin tristique sodales orci, vel sollicitudin elit congue non. Nam justo nunc, volutpat in sem vitae, faucibus pulvinar quam. Nunc vestibulum metus magna, eget blandit erat porta sed. In hac habitasse platea dictumst. Donec vel molestie justo, nec viverra leo. Maecenas nisi mauris, scelerisque a urna tempor, dapibus lobortis leo. Curabitur lobortis ut erat vitae fermentum. 
                 </div>
             </div>
-
-            <div class="card">
-                <div class="card-title text-center font-weight-bold">
-                    Special Title 2
-                </div>
-                <div class="card-body text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare mollis tellus, in pretium mi aliquam at. Quisque suscipit felis facilisis viverra tincidunt. Maecenas sit amet molestie diam. Suspendisse in velit euismod, egestas sem eget, faucibus ligula. Proin tristique sodales orci, vel sollicitudin elit congue non. Nam justo nunc, volutpat in sem vitae, faucibus pulvinar quam. Nunc vestibulum metus magna, eget blandit erat porta sed. In hac habitasse platea dictumst. Donec vel molestie justo, nec viverra leo. Maecenas nisi mauris, scelerisque a urna tempor, dapibus lobortis leo. Curabitur lobortis ut erat vitae fermentum. 
-                </div>
-            </div>
-        </div>
 
 
 

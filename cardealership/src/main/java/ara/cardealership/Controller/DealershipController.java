@@ -91,7 +91,7 @@ public class DealershipController {
  //--------------------------------------------------------------------------------         
        
 
-    @GetMapping("index")
+    @GetMapping("/")
     public String displayfeatured(Model model) {
         List<CarDto> carsaq = avcars();
         List<CarDto> carsShown = new ArrayList();
@@ -104,7 +104,7 @@ public class DealershipController {
 
         model.addAttribute("cars", carsShown);
       
-        return "index.html";
+        return "index";
     }
 
     //--------------------------------------------------------------------------------  
@@ -297,7 +297,7 @@ public class DealershipController {
         
         model.addAttribute("cars", carsav);
          
-        return "redirect:/admin/vehicles.html";
+        return "admin/vehicles.html";
     }  
     
     

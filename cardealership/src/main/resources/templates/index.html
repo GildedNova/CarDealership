@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <link th:href="@{/css/style.css}"  rel="stylesheet">
+        <title>Dealership</title>
+    </head>
+    <body>
+
+
+        <!<!-- --------------------------------------------------NavBar------------------------------------------------------------- -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top" height="100" id="navbar">
+            <a class="navbar-brand" href="#">
+                <img th:src="@{img/araIcon.png}" width="250" height="170" class="d-inline-block align-mid" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav nav-fill w-100">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/inventory/new">New Inventory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/inventory/used">Used Inventory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/specials">Specials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Financing Options
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" id="financeOptions">
+                            <a class="dropdown-item" href="#">Bank Financing</a>
+                            <a class="dropdown-item" href="#">Dealer Financing</a>
+                            <a class="dropdown-item" href="#">Cash Policy</a>
+                            <a class="dropdown-item" href="#">Loan Calculator</a>
+                        </div>
+                    </li>
+                    <div>
+                        <p id="contact-info">
+                            1234 Somewhere Blvd <br>
+                            Greensboro, NC 27407 <br>
+                            Sales: <b>281-330-8004</b> 
+                        </p>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+
+
+        <!-- Main Body of Page -->
+
+
+        <div class="container-sm" style="padding-bottom: 5em;">
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="3"></li>
+                </ol>
+
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img th:src="@{img/acura-nsx-car-2.png}" class="d-block w-100" alt="Slide 1" width="2100" height="600">
+                        <div class="carousel-caption d-none d-md-block" style="color: rgb(212, 212, 212); background-color: rgb(16, 16, 16)">
+                            <h3>HOT DEAL</h3>
+                            <p>2022 Acura NSX <s>MSRP$145999.99</s> SALE $139599.00 </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img th:src="@{img/blue-toyota-rav4-hybrid-car.png}" class="d-block w-100" alt="Slide 2" width="2100" height="600">
+                        <div class="carousel-caption d-none d-md-block" style="color: rgb(212, 212, 212); background-color: rgb(16, 16, 16)">
+                            <h3>HOT DEAL</h3>
+                            <p>2022 Toyota Rav4 <s>MSRP$55999.99</s> SALE $49599.00 </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img th:src="@{img/lexus.png}" class="d-block w-100" alt="Slide 3" width="2100" height="600">
+                        <div class="carousel-caption d-none d-md-block" style="color: rgb(212, 212, 212); background-color: rgb(16, 16, 16)" >
+                            <h3>HOT DEAL</h3>
+                            <p>2022 Lexus Something <s>MSRP$75999.99</s> SALE $69599.00 </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel controls -->
+            <a class="carousel-control-prev" href="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+
+        <!--            <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <h1 class="display-4">Fluid jumbotron</h1>
+                            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                        </div>
+                    </div>-->
+
+
+        <div style="background-color: black; padding-top: 1.5em; padding-bottom: 1.5em; opacity: .8">
+            <h1 class="container" style="text-align: center; color: white; font-size: 3em">
+                Featured Vehicles
+            </h1>
+        </div>
+
+
+        <div class="container"  id="featuredvehicles" >
+
+
+            <div class="row" >
+                <div class="col-4 p-3 border bg-black border-dark"  th:each="car:${cars}" style="align-content:center;">
+                    <div class="card" style="width: 18rem; ">
+                        <img class="card-img-top" th:src="@{img/comingSoon.jpg}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title" th:inline="text">
+                                <span th:text="${car.makeName}">Car Name</span>
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-muted" th:text="${car.modelName}">Car subtitle</h6>
+                            <p class="card-text" th:text="${car.salePrice}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+
+        <div align="center">
+            <iframe style="width: 70%; padding-top: 5em; border: 0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12908.12311634244!2d-79.86910584986926!3d36.019541781868014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88531f4ad52fb4e9%3A0xba496baae252c22!2sCar%20One!5e0!3m2!1sen!2sus!4v1651402036747!5m2!1sen!2sus" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" display="d-inline-block"></iframe>
+
+        </div>
+        <!-- End main body -->
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

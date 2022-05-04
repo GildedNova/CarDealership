@@ -1,0 +1,58 @@
+body {
+    background-image: url("https://cdn.dlron.us/static/dealer-16311/ford_dealer_banner.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: black;
+}
+
+#navbar {
+    font-size: 1.5rem;
+}
+
+#contact-info {
+    font-size: 1rem;
+    color: antiquewhite;
+    padding-right: 2rem;
+    padding-left: 4rem;
+}
+
+#financeOptions {
+    align-self: right;
+    color: rgb(251, 251, 251);
+}
+
+.dropdown-toggle {
+    border-style: solid;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.dropdown-menu{
+    font-size: 1.5rem;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+#pwb-carousel-bg {
+    background-color: grey;
+}
+
+#featuredvehicles{
+/*    display: flex;
+    align-items: center;
+    flex-wrap: wrap;*/
+    background-color: rgb(16, 16, 16);
+}
+
+
+.col{
+    width: 20rem;
+    height:20rem;
+
+}
