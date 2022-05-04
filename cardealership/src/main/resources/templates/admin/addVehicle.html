@@ -30,190 +30,196 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="row" >
-                        <label class="col-3 col-form-label">
-                            Make
-                        </label>   
+            <form action="/admin/addVehicle" method="POST">
+                <div class="row">
+                    <div class="col">
+                        <div class="row" >
+                            <label class="col-3 col-form-label">
+                                Make
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <select class="browser-default custom-select" name="make">
+                                <option selected></option>
+                                <option th:each="make : ${make}"
+                                        th:value="${make.name}"
+                                        th:text="${make.name}"></option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label class="col-3 col-form-label">
+                                Type
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <select class="browser-default custom-select" name="type">
+                                <option selected>New</option>
+                                <option>Used</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label class="col-3 col-form-label">
+                                Year
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <input type="text" class="form-control" name="year">
+                        </div>
+                        <div class="row">
+                            <label class="col-3 col-form-label">
+                                Color
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <select class="browser-default custom-select" name="color">
+                                <option selected></option>
+                                <option th:each="color : ${color}"
+                                        th:value="${color}"
+                                        th:text="${color}"></option>
+                            </select>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label class="col-3 col-form-label">
+                                Mileage
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <input type="text" class="form-control" name="mileage">
+                        </div>
+                        <div class="row">
+                            <label class="col-3 col-form-label">
+                                MSRP
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <input type="text" class="form-control" name="msrp">
+                        </div>
+
                     </div>
-                    <div class="row-1">
-                        <select class="browser-default custom-select">
-                            <option selected></option>
-                            <option th:each="make : ${make}"
-                                    th:value="${make.name}"
-                                    th:text="${make.name}"></option>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <label class="col-3 col-form-label">
-                            Type
-                        </label>   
-                    </div>
-                    <div class="row-1">
-                        <select class="browser-default custom-select">
-                            <option selected>New</option>
-                            <option>Used</option>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <label class="col-3 col-form-label">
-                            Year
-                        </label>   
-                    </div>
-                    <div class="row-1">
-                        <input type="text" class="form-control" id="usr">
-                    </div>
-                    <div class="row">
-                        <label class="col-3 col-form-label">
-                            Color
-                        </label>   
-                    </div>
-                    <div class="row-1">
-                        <select class="browser-default custom-select">
-                            <option selected></option>
-                            <option th:each="color : ${color}"
-                                    th:value="${color}"
-                                    th:text="${color}"></option>
-                        </select>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <label class="col-3 col-form-label">
-                            Mileage
-                        </label>   
-                    </div>
-                    <div class="row-1">
-                        <input type="text" class="form-control" id="usr">
-                    </div>
-                    <div class="row">
-                        <label class="col-3 col-form-label">
-                            MSRP
-                        </label>   
-                    </div>
-                    <div class="row-1">
-                        <input type="text" class="form-control" id="usr">
+
+
+                    <div class="col">
+                        <div class="row">
+                            <label class="col-3 col-form-label">
+                                Model
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <select class="browser-default custom-select" name="carmodel">
+                                <option selected></option>
+                                <option th:each="model : ${model}"
+                                        th:value="${model.name}"
+                                        th:text="${model.name}"></option>
+                            </select>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label class="col-3 col-form-label">
+                                Body Style
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <select class="browser-default custom-select" name="bodyStyle">
+                                <option selected></option>
+                                <option th:each="bodyStyle : ${bodyStyle}"
+                                        th:value="${bodyStyle}"
+                                        th:text="${bodyStyle}"></option>
+                            </select>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label class="col-3 col-form-label">
+                                Transmission
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <select class="browser-default custom-select" name="transmission">
+                                <option selected></option>
+                                <option th:each="transmission : ${transmission}"
+                                        th:value="${transmission}"
+                                        th:text="${transmission}"></option>
+                            </select>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label class="col-3 col-form-label">
+                                Interior
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <select class="browser-default custom-select" name="interiorcolor">
+                                <option selected></option>
+                                <option th:each="color : ${color}"
+                                        th:value="${color}"
+                                        th:text="${color}"></option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label class="col-3 col-form-label">
+                                Vin #
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <input type="text" class="form-control" name="vin">
+                        </div>
+                        <div class="row">
+                            <label class="col-3 col-form-label">
+                                Sales Price
+                            </label>   
+                        </div>
+                        <div class="row-1">
+                            <input type="text" class="form-control" name="saleprice">
+                        </div>
+
+
                     </div>
 
                 </div>
 
+                <div class="container">
+                    <div class="row">
+                        <label class="col-3 col-form-label">
+                            Description
+                        </label>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <textarea>
+                            </textarea>
+                        </div>
 
-                <div class="col">
-                    <div class="row">
-                        <label class="col-3 col-form-label">
-                            Model
-                        </label>   
                     </div>
-                    <div class="row-1">
-                        <select class="browser-default custom-select">
-                            <option selected></option>
-                            <option th:each="model : ${model}"
-                                    th:value="${model.name}"
-                                    th:text="${model.name}"></option>
-                        </select>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <label class="col-3 col-form-label">
-                            Body Style
-                        </label>   
-                    </div>
-                    <div class="row-1">
-                        <select class="browser-default custom-select">
-                            <option selected></option>
-                            <option th:each="bodyStyle : ${bodyStyle}"
-                                    th:value="${bodyStyle}"
-                                    th:text="${bodyStyle}"></option>
-                        </select>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <label class="col-3 col-form-label">
-                            Transmission
-                        </label>   
-                    </div>
-                    <div class="row-1">
-                        <select class="browser-default custom-select">
-                            <option selected></option>
-                            <option th:each="transmission : ${transmission}"
-                                    th:value="${transmission}"
-                                    th:text="${transmission}"></option>
-                        </select>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <label class="col-3 col-form-label">
-                            Interior
-                        </label>   
-                    </div>
-                    <div class="row-1">
-                        <select class="browser-default custom-select">
-                            <option selected></option>
-                            <option th:each="color : ${color}"
-                                    th:value="${color}"
-                                    th:text="${color}"></option>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <label class="col-3 col-form-label">
-                            Vin #
-                        </label>   
-                    </div>
-                    <div class="row-1">
-                        <input type="text" class="form-control" id="usr">
-                    </div>
-                    <div class="row">
-                        <label class="col-3 col-form-label">
-                            Sales Price
-                        </label>   
-                    </div>
-                    <div class="row-1">
-                        <input type="text" class="form-control" id="usr">
-                    </div>
-
-
                 </div>
 
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <label class="col-3 col-form-label">
-                    Description
-                </label>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <textarea>
-                    </textarea>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <label class="col-3 col-form-label">
-                    Picture
-                </label>
-            </div>
-            <div class="row">
-                <div class="input-group col-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                <div class="container">
+                    <div class="row">
+                        <label class="col-3 col-form-label">
+                            Picture
+                        </label>
                     </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    <div class="row">
+                        <div class="input-group col-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="container p-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+
+            </form>
+
         </div>
 
-        <div class="container p-3">
-            <button type="button" class="btn btn-primary">Save</button>
-        </div>
+
 
 
 

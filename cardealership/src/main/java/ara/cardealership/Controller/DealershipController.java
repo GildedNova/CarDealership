@@ -348,7 +348,7 @@ public class DealershipController {
         return "admin/addVehicle.html";
     }
 
-    @PostMapping("admin/addvehicle")//page to send those changes
+    @PostMapping("admin/addVehicle")//page to send those changes
     public String postaddvehicle(CarDto car, HttpServletRequest request, Model model) {
 
         String make = request.getParameter("make");
@@ -367,13 +367,13 @@ public class DealershipController {
 
         String interiorcolor = request.getParameter("interiorcolor");
 
-        int mileage = Integer.parseInt(request.getParameter("Mileage"));
+        int mileage = Integer.parseInt(request.getParameter("mileage"));
 
         String vin = request.getParameter("vin");
 
-        int msrp = Integer.parseInt(request.getParameter("msrp"));
+        float msrp = Float.parseFloat(request.getParameter("msrp"));
 
-        int salePrice = Integer.parseInt(request.getParameter("saleprice"));
+        float salePrice = Float.parseFloat(request.getParameter("saleprice"));
 
         car.setMakeName(make);//add all the info to the object
         car.setModelName(carmodel);
@@ -388,11 +388,39 @@ public class DealershipController {
         car.setMsrp(msrp);
         car.setSalePrice(salePrice);
 
+        for (MakeDto m : carDao.getAllMakes()) {
+            if (m.getName().equals(car.getMakeName())) {
+                car.setMakeId(m.getMakeId());
+            }
+        }
+
+        for (ModelDto md : carDao.getAllModels()) {
+           // System.out.println("Model: " + md.getName() + " ModelId: " + md.getModelId());
+            if (md.getName().equals(car.getModelName())) {
+                car.setModelId(md.getModelId());
+            }
+        }
+
+//        System.out.println(car.getMakeName());
+//        System.out.println(car.getModelName());
+//        System.out.println(car.getType());
+//        System.out.println(car.getBodyStyle());
+//        System.out.println(car.getYear());
+//        System.out.println(car.getTransmission());
+//        System.out.println(car.getExteriorColor());
+//        System.out.println(car.getInteriorColor());
+//        System.out.println(car.getMileage());
+//        System.out.println(car.getVinNum());
+//        System.out.println(car.getMsrp());
+//        System.out.println(car.getSalePrice());
+//        System.out.println(car.getModelId());
+//        System.out.println(car.getMakeId());
+
         carDao.addCar(car);
 
         model.addAttribute("car", car);
 
-        return "redirect:/admin/addVehicle.html";
+        return "redirect:/admin/addVehicle";
     }
 
 //--------------------------------------------------------------------------------      

@@ -205,7 +205,7 @@ public class CarDaoDB implements CarDao {
         public ModelDto mapRow(ResultSet rs, int index) throws SQLException {
             ModelDto model = new ModelDto();
             model.setName(rs.getString("name"));
-            model.setMakeId(rs.getInt("makeId"));
+            model.setModelId(rs.getInt("id"));
             return model;
         }
     }
