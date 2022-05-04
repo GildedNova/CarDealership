@@ -32,14 +32,17 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="row">
+                    <div class="row" >
                         <label class="col-3 col-form-label">
                             Make
                         </label>   
                     </div>
                     <div class="row-1">
                         <select class="browser-default custom-select">
-                            <option selected>Open this select menu</option>
+                            <option selected>Make</option>
+                            <option th:each="make : ${make}"
+                                    th:value="${make.name}"
+                                    th:text="${make.name}"></option>
                         </select>
                     </div>
                     <div class="row">
