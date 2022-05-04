@@ -205,7 +205,7 @@ public class DealershipController {
         contactdao.addContact(contact);
 
 
-        return "redirect:/contact.html";
+        return "redirect:contact/contact.html";
     }
     
     
@@ -300,6 +300,10 @@ public class DealershipController {
         return "admin/vehicles.html";
     }  
     
+    @GetMapping("admin/addVehicle")
+    public String addVehicle(){
+        return "admin/addVehicle.html";
+    }
     
     @GetMapping("admin/editvehicle")//show a certain car page for admin to edit
     public String editvehicle(CarDto car, HttpServletRequest request, Model model) {
