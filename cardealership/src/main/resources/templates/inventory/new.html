@@ -83,39 +83,47 @@
 
         <div class="container">
 
-            <div class="card">
-                <div class="card-header">
+            <div class="card" th:each="car:${cars}">
+                <div class="card-header" th:text="${car.makeName + ' ' + car.modelName}" >
                     Car Make & Model
                 </div>
-                <div class="card-body">
+                <div class="card-body" >
                     <div class="row">
                         <div class="col">
-                            <p class="card-text">Body Style:</p>
+                            <h4 class="card-text">Body Style:</h4>
+                            <p th:text="${car.bodyStyle}">Body Style:</p>
                         </div>
                         <div class="col">
-                            <p class="card-text">Interior:</p>
+                            <h4 class="card-text">Interior:</h4>
+                            <p th:text="${car.interiorColor}">Body Style:</p>
                         </div>
                         <div class="col">
-                            <p class="card-text">Sale Price:</p>
+                            <h4 class="card-text">Sale Price:</h4>
+                            <p th:text="${car.salePrice}">Body Style:</p>
                         </div>                       
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p class="card-text">Trans:</p>
+                            <h4 class="card-text">Trans:</h4>
+                            <p th:text="${car.transmission}">Body Style:</p>
                         </div>
                         <div class="col">
-                            <p class="card-text">Mileage</p>
+                            <h4 class="card-text">Mileage</h4>
+                            <p th:text="${car.mileage}">Body Style:</p>
                         </div>
                         <div class="col">
-                            <p class="card-text">MSRP:</p>
+                            <h4 class="card-text">MSRP:</h4>
+                            <p th:text="${car.msrp}">Body Style:</p>
                         </div>  
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p class="card-text">Color:</p>
+                            <h4 class="card-text">Color:</h4>
+                            <p th:text="${car.exteriorColor}">Body Style:</p>
                         </div>
                         <div class="col">
-                            <p class="card-text">Vin#</p>
+                            <h4 class="card-text">Vin#</h4>
+                            <p th:text="${car.vinNum}">Body Style:</p>
                         </div>
                         <div class="col">
                             <a href="#" class="btn btn-primary">Details</a>
