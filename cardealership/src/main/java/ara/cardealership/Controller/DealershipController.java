@@ -157,7 +157,7 @@ public class DealershipController {
     
     
    //--------------------------------------------------------------------------------   
-    @GetMapping("specials")
+    @GetMapping("specials")//page with specials
     public String specials (Model model) {
         
         List<SpecialDto> specials = specialDao.getAllSpecials();
@@ -173,11 +173,11 @@ public class DealershipController {
     //--------------------------------------------------------------------------------  
     
     
-    @GetMapping("contact")
+    @GetMapping("contact")//page to add a contact 
     public String contact (Model model) {
         
         List<ContactDto> listcontacts = contactdao.getAllContacts();
-        model.addAttribute("Contacts", listcontacts);
+        model.addAttribute("Contacts", listcontacts);//this is only useful to check if a contact already exists not fully necessary
 
 
         return "redirect:/contact.html";
@@ -185,7 +185,7 @@ public class DealershipController {
     
     
     
-    @PostMapping("addcontact")
+    @PostMapping("addcontact")//posting the information for the contact 
     public String addcontact (ContactDto contact, HttpServletRequest request, Model model) {
         
         //check if contact exists for later
@@ -235,7 +235,7 @@ public class DealershipController {
     
     
     
-    @PostMapping("sales/purchase")//do a purchase request
+    @PostMapping("sales/purchase")//do a purchase request or "post"
     public String dosale(SaleDto sale, HttpServletRequest request, Model model) {
     
      String name = request.getParameter("Name");
