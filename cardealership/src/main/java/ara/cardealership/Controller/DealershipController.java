@@ -317,11 +317,47 @@ public class DealershipController {
     @PostMapping("admin/editvehicle")//show purchase page
     public String posteditvehicle(CarDto car, HttpServletRequest request, Model model) {
         
-        String carID = request.getParameter("carID");
         
-        CarDto tempcar = carDao.getCarById(Integer.parseInt(carID));
+        String make = request.getParameter("make");
         
-        model.addAttribute("cars", tempcar);
+        String carmodel = request.getParameter("carmodel");
+        
+        String Type = request.getParameter("Type");
+        
+        String bodyStyle = request.getParameter("bodyStyle");
+        
+        int year = Integer.parseInt(request.getParameter("year"));
+        
+        String transmission = request.getParameter("transmission");
+        
+        String color = request.getParameter("color");//exterior color
+        
+        String interiorcolor = request.getParameter("interiorcolor");
+        
+        int mileage =Integer.parseInt(request.getParameter("Mileage"));
+        
+        String VIN = request.getParameter("VIN");
+        
+        int MSRP =Integer.parseInt(request.getParameter("MSRP"));
+        
+        int salePrice = Integer.parseInt(request.getParameter("saleprice"));
+        
+        car.setMakeName(make);//add all the info to the object
+        car.setModelName(carmodel);
+        car.setType(Type);
+        car.setBodyStyle(bodyStyle);
+        car.setYear(year);
+        car.setTransmission(transmission);
+        car.setExteriorColor(color);
+        car.setInteriorColor(interiorcolor);
+        car.setMileage(mileage);
+        car.setVinNum(VIN);
+        car.setMsrp(MSRP);
+        car.setSalePrice(salePrice);
+        
+        carDao.addCar(car);
+        
+        model.addAttribute("car", car);
          
         return "redirect:/admin/editVehicle.html";
     }  
