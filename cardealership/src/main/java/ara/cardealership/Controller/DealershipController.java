@@ -290,7 +290,7 @@ public class DealershipController {
   //--------------------------------------------------------------------------------  
     
     
-    @GetMapping("admin/vehicles")//show purchase page
+    @GetMapping("admin/vehicles")//show vehicles for admin to change
     public String showvehiclestoedit(CarDto car, HttpServletRequest request, Model model) {
         
         List<CarDto> carsav = avcars();
@@ -301,7 +301,7 @@ public class DealershipController {
     }  
     
     
-    @GetMapping("admin/editvehicle")//show purchase page
+    @GetMapping("admin/editvehicle")//show a certain car page for admin to edit
     public String editvehicle(CarDto car, HttpServletRequest request, Model model) {
         
         String carID = request.getParameter("carID");
@@ -314,7 +314,7 @@ public class DealershipController {
     }     
     
     
-    @PostMapping("admin/editvehicle")//show purchase page
+    @PostMapping("admin/editvehicle")//make those edit changes
     public String posteditvehicle(CarDto car, HttpServletRequest request, Model model) {
         
         int carID = Integer.parseInt(request.getParameter("year"));
@@ -365,7 +365,7 @@ public class DealershipController {
     }  
     
     
-    @GetMapping("admin/addvehicle")//show purchase page
+    @GetMapping("admin/addvehicle")//page to add a new vehicle
     public String addvehicle(CarDto car, HttpServletRequest request, Model model) {
         
         
@@ -374,7 +374,7 @@ public class DealershipController {
     }     
     
     
-    @PostMapping("admin/addvehicle")//show purchase page
+    @PostMapping("admin/addvehicle")//page to send those changes
     public String postaddvehicle(CarDto car, HttpServletRequest request, Model model) {
         
         
@@ -422,7 +422,7 @@ public class DealershipController {
         return "redirect:/admin/addVehicle.html";
     }  
     
-    
+//--------------------------------------------------------------------------------      
     
     
     
